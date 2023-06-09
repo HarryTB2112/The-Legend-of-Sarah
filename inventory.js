@@ -4,9 +4,9 @@ const openInventory = (inventory) => {
   if (inventory.length === 0) {
     console.log("Empty");
   }
-  inventory.forEach((item) => {
-    console.log(item);
-  });
+  for (let i = 0; i < inventory.length; i++) {
+    console.log(inventory[i]);
+  }
 };
 
 module.exports = { inventory, openInventory };
