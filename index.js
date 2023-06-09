@@ -1,8 +1,6 @@
 const colors = require("ansi-colors");
 const prompt = require("prompt-sync")();
-const { serenoCenter, showMenu } = require("./mapFunctions");
-const { inventory, openInventory } = require("./inventory");
-const { serenoMap } = require("./serenoMap");
+const { serenoMap } = require("./maps/sereno/serenoMap");
 let running = true;
 // let help = "Press (Q) to quit or (I)";
 

@@ -9,4 +9,5 @@ function openInventory(inventory) {
   }
 }
 
-module.exports = { inventory, openInventory };
+// module.exports = { inventory, openInventory };
+export default inventory;
