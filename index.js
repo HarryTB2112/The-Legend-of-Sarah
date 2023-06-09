@@ -1,6 +1,7 @@
 const colors = require("ansi-colors");
 const prompt = require("prompt-sync")();
 const { serenoCenter, showMenu } = require("./mapFunctions");
+const { inventory, openInventory } = require("./inventory");
 let running = true;
 // let help = "Press (Q) to quit or (I)";
 
@@ -25,15 +26,34 @@ while (running === true) {
     "In the tranquil village of Sereno, nestled amidst lush forests and rolling hills, you, a young and courageous boy named Simon, reside. With an unyielding spirit and a deep sense of adventure, you have always felt a connection to the ancient legends that echo through his homeland.\nType 'help' to open the menu at any point\n"
   );
 
+  console.log("Type 'inventory' to open the Inventory at any point");
+
+  console.log(
+    "You awake from your slumber, Simon, a young adventurer with only a creaky house to his name.\nOn the search for adventure you dress in your garbs and exit your shack.\n \nA notice has been posted on your front door: \n'The Princess Sarah has been kidnapped by the evil Tombyrne, take up arms adventurers!'\n"
+  );
+
   let serenoCenterValue = "";
 
   serenoCenterValue = serenoCenter(serenoCenterValue);
+
+  if (serenoCenterValue === "inventory") {
+    openInventory(inventory);
+  }
 
   if (serenoCenterValue === "go west") {
     console.log("Travel west");
   }
 
   if (serenoCenterValue === "go east") {
+    console.log("travel east");
+  }
+  if (serenoCenterValue === "go north") {
+    console.log(
+      "'Ho there Simon! Are you here for sword training' Alex says. \nYou were about to turn away until you realised, you need a sword to rescue Princess Sarah! \nYou agree with Alex and enter the traning ground \nHe provides you with a rusty training sword! \nWhile Alex is distracted training rookies, you sneak out the back with your newly aquired sword"
+    );
+    inventory.push("Traning Sword");
+  }
+  if (serenoCenterValue === "go south") {
     console.log("travel east");
   }
 
