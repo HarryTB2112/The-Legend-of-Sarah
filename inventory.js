@@ -1,4 +1,4 @@
-const inventory = [];
+let inventory = [];
 
 function openInventory(inventory) {
   if (inventory.length === 0) {
@@ -9,5 +9,4 @@ function openInventory(inventory) {
   }
 }
 
-// module.exports = { inventory, openInventory };
-export default inventory;
+module.exports = { inventory, openInventory };

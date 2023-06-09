@@ -1,5 +1,6 @@
 const alex = require("./alex");
 const harry = require("./harry");
+const { serenoCenter } = require("../../mapFunctions");
 
 const serenoMap = () => {
   let serenoCenterValue = "";
@@ -14,11 +15,11 @@ const serenoMap = () => {
   //     console.log("travel east");
   //   }
   if (serenoCenterValue === "go north") {
-    alex();
+    alex(serenoMap);
   }
 
   if (serenoCenterValue === "go south") {
-    harry();
+    harry(serenoMap);
   }
 
   // if (serenoCenterValue === "inventory") {
@@ -34,4 +35,4 @@ const serenoMap = () => {
   //   }
 };
 
-module.exports = serenoMap;
+module.exports = { serenoMap };
