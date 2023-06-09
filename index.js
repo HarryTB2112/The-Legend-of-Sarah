@@ -2,6 +2,7 @@ const colors = require("ansi-colors");
 const prompt = require("prompt-sync")();
 const { serenoCenter, showMenu } = require("./mapFunctions");
 const { inventory, openInventory } = require("./inventory");
+const { serenoMap } = require("./serenoMap");
 let running = true;
 // let help = "Press (Q) to quit or (I)";
 
@@ -32,36 +33,8 @@ while (running === true) {
     "You awake from your slumber, Simon, a young adventurer with only a creaky house to his name.\nOn the search for adventure you dress in your garbs and exit your shack.\n \nA notice has been posted on your front door: \n'The Princess Sarah has been kidnapped by the evil Tombyrne, take up arms adventurers!'\n"
   );
 
-  let serenoCenterValue = "";
-
-  serenoCenterValue = serenoCenter(serenoCenterValue);
-
-  if (serenoCenterValue === "inventory") {
-    openInventory(inventory);
-  }
-
-  if (serenoCenterValue === "go west") {
-    console.log("Travel west");
-  }
-
-  if (serenoCenterValue === "go east") {
-    console.log("travel east");
-  }
-  while (serenoCenterValue === "go north") {
-    console.log(
-      "'Ho there Simon! Are you here for sword training' Alex says. \nYou were about to turn away until you realised, you need a sword to rescue Princess Sarah! \nYou agree with Alex and enter the traning ground \nHe provides you with a rusty training sword! \nWhile Alex is distracted training rookies, you sneak out the back with your newly aquired sword"
-    );
-    inventory.push("Traning Sword");
-    serenoCenterValue = "";
-    serenoCenterValue = serenoCenter(serenoCenterValue);
-  }
-  if (serenoCenterValue === "go south") {
-    console.log("travel east");
-  }
-
-  if (serenoCenterValue === "help") {
-    showMenu();
-  }
+  serenoMap();
+  // call each map from the serenoMap function
 
   running = false;
 }

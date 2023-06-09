@@ -11,9 +11,12 @@ const serenoCenter = (value) => {
     value !== "inventory"
   ) {
     // console.log("You cannot do that");
+    console.log(
+      "You see the forest to the west and the entrance to the castle grounds to the east..."
+    );
     value = String(
       prompt(
-        "\nYou see the forest to the west and the entrance to the castle grounds to the east... \nTo the north you see a buff looking man, and to the south you see an incredibly handsome bloke "
+        "To the north you see a buff looking man, and to the south you see an incredibly handsome bloke "
       )
     ).toLowerCase();
   }
