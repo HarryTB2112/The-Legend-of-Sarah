@@ -2,12 +2,12 @@ const { inventory } = require("../../inventory");
 
 const harry = (callBack) => {
   if (inventory.includes("LaFossian Shield")) {
-    console.log("I shouldn't pester Harry... He seems upset\n");
+    console.log("\nI shouldn't pester Harry... He seems upset\n");
     callBack();
   }
 
   console.log(
-    "'Yo Simon!' Harry says. \n'I think the adventuring days are over for me since i took a bokoblin arrow to the knee' \nHe shows a shiny engraved shield to you \n'I want you to have this, I wont be needing it anymore'"
+    "\n'Yo Simon!' Harry says. \n'I think the adventuring days are over for me since i took a bokoblin arrow to the knee' \nHe shows a shiny engraved shield to you \n'I want you to have this, I wont be needing it anymore'\n"
   );
   inventory.push("LaFossian Shield");
   callBack();
