@@ -1,5 +1,6 @@
 const { forestCenter } = require("../../mapFunctions");
 const { stream } = require("./stream");
+const { cave } = require("./cave");
 const { inventory, openInventory } = require("../../inventory");
 
 const forestMap = () => {
@@ -9,6 +10,10 @@ const forestMap = () => {
 
   if (forestCenterValue === "go north") {
     stream(forestMap);
+  }
+
+  if (forestCenterValue === "go west") {
+    cave(forestMap);
   }
 
   if (forestCenterValue === "inventory") {
