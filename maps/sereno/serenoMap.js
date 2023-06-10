@@ -1,6 +1,7 @@
 const alex = require("./alex");
 const harry = require("./harry");
 const { serenoCenter } = require("../../mapFunctions");
+const { inventory, openInventory } = require("../../inventory");
 
 const serenoMap = () => {
   let serenoCenterValue = "";
@@ -22,9 +23,9 @@ const serenoMap = () => {
     harry(serenoMap);
   }
 
-  // if (serenoCenterValue === "inventory") {
-  //   openInventory(inventory);
-  //}
+  if (serenoCenterValue === "inventory") {
+    openInventory(inventory, serenoMap);
+  }
 
   //   if (serenoCenterValue === "go south") {
   //     console.log("travel east");
