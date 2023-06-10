@@ -8,7 +8,7 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
-  "author": "",
+  "author": "Harry Turner-Burns and Alex Earle",
   "license": "ISC",
   "dependencies": {
     "ansi-colors": "^4.1.3",
