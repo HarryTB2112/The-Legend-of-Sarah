@@ -1,4 +1,5 @@
-const forestCenter = require("../../mapFunctions");
+const { forestCenter } = require("../../mapFunctions");
+const { stream } = require("./stream");
 const { inventory, openInventory } = require("../../inventory");
 
 const forestMap = () => {
