@@ -10,6 +10,10 @@ const forestMap = () => {
   if (forestCenterValue === "go north") {
     stream(forestMap);
   }
+
+  if (forestCenterValue === "inventory") {
+    openInventory(inventory, forestMap);
+  }
 };
 
 module.exports = forestMap;
