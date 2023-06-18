@@ -5,72 +5,60 @@ const prompt = require("prompt-sync")();
 const { serenoMap } = require("./maps/sereno/serenoMap");
 let running = true;
 
+const textDelayer = (str, promptValue, callBack) => {
+  let i = 0;
+  let timer = setInterval(() => {
+    process.stdout.write(str[i]);
+    i++;
+    if (i >= str.length) {
+      process.stdout.write("\n");
+      clearInterval(timer);
+    }
+  }, 50);
+
+  let amount = (str.length + 25) * 50;
+
+  setTimeout(() => {
+    promptValue = String(prompt(""));
+    skipIntroValue = promptValue;
+
+    while (
+      promptValue[0] !== "y" &&
+      promptValue[0] !== "n" &&
+      promptValue !== "go west" &&
+      promptValue !== "go east" &&
+      promptValue !== "help" &&
+      promptValue !== "go north" &&
+      promptValue !== "go south" &&
+      promptValue !== "inventory"
+    ) {
+      promptValue = String(prompt("Y/N ")).toLowerCase().trim();
+      skipIntroValue = promptValue;
+    }
+    callBack(promptValue);
+  }, amount);
+};
+
 while (running) {
-  let text = "Hi there YOu lrgednsd ";
-  let nextLine = "Hi ya";
+  let skipIntroValue = "";
 
-  const textDelayer = (str, callBackFunc, nextLine) => {
-    let i = 0;
-    let timer = setInterval(() => {
-      process.stdout.write(str[i]);
-      i++;
-      if (i >= str.length) {
-        process.stdout.write("\n");
-        clearInterval(timer);
-      }
-    }, 100);
-  
-    let amount = (str.length + 1) * 100
-    callBackFunc(nextLine, amount)
+  const introCutScene = (value) => {
+    if (value === "n") {
+      console.log("HIYA");
+      mainText = "Dumb dumb";
+      textDelayer(mainText, "", serenoMap);
+      // console.log(
+      //   colors.cyan.bgGreen(
+      //     "In 'The Legend of Sarah,' prepare to embark on an unforgettable odyssey, where courage, wisdom, and the power of the heart will be tested. Will Simon rise to the challenge, defeat the evil Tombyrne, and become the hero LaFosse desperately needs? \nThe legend awaits, and his legacy is about to unfold. \n \nIn the tranquil village of Sereno, nestled amidst lush forests and rolling hills, you, a young and courageous boy named Simon, reside. \nWith an unyielding spirit and a deep sense of adventure, you have always felt a connection to the ancient legends that echo through his homeland.\n \nType 'help' to open the menu at any point\n \nType 'inventory' to open the Inventory at any point \n \nYou awake from your slumber, Simon, a young adventurer with only a creaky house to his name.\nOn the search for adventure you dress in your garbs and exit your shack.\n \nA notice has been posted on your front door: \n'The Princess Sarah has been kidnapped by the evil Tombyrne, take up arms adventurers!'\n"
+      //   )
+      // );
+    }
   };
-
-  const textDelayerTwo = (str, amount) => {
-    setTimeout(() => {
-
-      let i = 0;
-      let timer = setInterval(() => {
-        process.stdout.write(str[i]);
-        i++;
-        if (i >= str.length) {
-          process.stdout.write("\n");
-          clearInterval(timer);
-        }
-      }, 100);
-    }, amount)
-  };
-
-  textDelayer(text, textDelayerTwo, nextLine);
-
-  // TyperEffect({text: "Hi there, Welcome to The Legend of Sarah", delay: 75});
-
-  // let skipIntro = 0;
-  // while (skipIntro[0] !== "y" && skipIntro[0] !== "n") {
-  //   skipIntro = TyperEffect({text: String(prompt("Would you like to skip the introduction? Y/N ")), delay: 105})
-  //     .toLowerCase()
-  //     .trim();
-  // }
-  // if (skipIntro[0] === "n") {
-  //   console.log(
-  //     colors.cyan.bgGreen(
-  //       "In 'The Legend of Sarah,' prepare to embark on an unforgettable odyssey, where courage, wisdom, and the power of the heart will be tested. Will Simon rise to the challenge, defeat the evil Tombyrne, and become the hero LaFosse desperately needs? The legend awaits, and his legacy is about to unfold."
-  //     )
-  //   );
-  // }
-
-  // typeWriter("Hello There");
-
-  // console.log(
-  //   "In the tranquil village of Sereno, nestled amidst lush forests and rolling hills, you, a young and courageous boy named Simon, reside. With an unyielding spirit and a deep sense of adventure, you have always felt a connection to the ancient legends that echo through his homeland.\nType 'help' to open the menu at any point\n"
-  // );
-
-  // console.log("Type 'inventory' to open the Inventory at any point");
-
-  // console.log(
-  //   "You awake from your slumber, Simon, a young adventurer with only a creaky house to his name.\nOn the search for adventure you dress in your garbs and exit your shack.\n \nA notice has been posted on your front door: \n'The Princess Sarah has been kidnapped by the evil Tombyrne, take up arms adventurers!'\n"
-  // );
-
-  // serenoMap();
-  // // call each map from the serenoMap function
+  let mainText =
+    "Hi there, Welcome to The Legend of Sarah\n\nThe legend\n\nWould you like to skip the introduction? Y/N ";
+  textDelayer(mainText, skipIntroValue, introCutScene);
 
   running = false;
 }
+
+module.exports = textDelayer;

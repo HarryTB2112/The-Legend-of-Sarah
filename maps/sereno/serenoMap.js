@@ -5,11 +5,14 @@ const forestMap = require("../forest/forestMap");
 const { serenoCenter } = require("../../mapFunctions");
 const { inventory, openInventory } = require("../../inventory");
 
-const serenoMap = () => {
-  let serenoCenterValue = "";
+const serenoMap = (promptValue) => {
+  // await textDelayer();
+  promptValue = "";
+  let serenoCenterValue = promptValue;
+  console.log(serenoCenterValue);
 
   serenoCenterValue = serenoCenter(serenoCenterValue);
-
+  console.log(serenoCenterValue);
   if (serenoCenterValue === "go north") {
     alex(serenoMap);
   }
