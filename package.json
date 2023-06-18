@@ -12,9 +12,7 @@
   "author": "Harry Turner-Burns and Alex Earle",
   "license": "ISC",
   "dependencies": {
-    "ansi-colors": "^4.1.3",
     "chalk": "^5.2.0",
-    "prompt-sync": "^4.2.0",
-    "typer-effect": "^1.0.3"
+    "prompt-sync": "^4.2.0"
   }
 }

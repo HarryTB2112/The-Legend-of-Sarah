@@ -1,6 +1,4 @@
-import TyperEffect from "typer-effect"
 import chalk from 'chalk';
-import colors from "ansi-colors"
 import promptSync from "prompt-sync"; 
 const prompt = promptSync()
 import { serenoMapFunc } from "./maps/sereno/serenoMap.js"
