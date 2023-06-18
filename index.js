@@ -1,5 +1,4 @@
-const TyperEffect = require('typer-effect');
-
+const TyperEffect = require("typer-effect");
 
 const colors = require("ansi-colors");
 const prompt = require("prompt-sync")();
@@ -7,8 +6,42 @@ const { serenoMap } = require("./maps/sereno/serenoMap");
 let running = true;
 
 while (running) {
+  let text = "Hi there YOu lrgednsd ";
+  let nextLine = "Hi ya";
 
-TyperEffect({text: "Hi there, Welcome to The Legend of Sarah", delay: 75});
+  const textDelayer = (str, callBackFunc, nextLine) => {
+    let i = 0;
+    let timer = setInterval(() => {
+      process.stdout.write(str[i]);
+      i++;
+      if (i >= str.length) {
+        process.stdout.write("\n");
+        clearInterval(timer);
+      }
+    }, 100);
+  
+    let amount = (str.length + 1) * 100
+    callBackFunc(nextLine, amount)
+  };
+
+  const textDelayerTwo = (str, amount) => {
+    setTimeout(() => {
+
+      let i = 0;
+      let timer = setInterval(() => {
+        process.stdout.write(str[i]);
+        i++;
+        if (i >= str.length) {
+          process.stdout.write("\n");
+          clearInterval(timer);
+        }
+      }, 100);
+    }, amount)
+  };
+
+  textDelayer(text, textDelayerTwo, nextLine);
+
+  // TyperEffect({text: "Hi there, Welcome to The Legend of Sarah", delay: 75});
 
   // let skipIntro = 0;
   // while (skipIntro[0] !== "y" && skipIntro[0] !== "n") {
