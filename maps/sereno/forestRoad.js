@@ -1,4 +1,4 @@
-const { inventory } = require("../../inventory");
+import { inventory }  from "../../inventory.js";
 
 const forestRoad = (callBack) => {
   console.log(
@@ -9,4 +9,4 @@ const forestRoad = (callBack) => {
   callBack();
 };
 
-module.exports = forestRoad;
+export {forestRoad}

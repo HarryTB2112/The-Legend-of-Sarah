@@ -1,15 +1,12 @@
-const alex = require("./alex");
-const harry = require("./harry");
-const forestRoad = require("./forestRoad");
-const forestMap = require("../forest/forestMap");
-const { serenoCenter } = require("../../mapFunctions");
-const { inventory, openInventory } = require("../../inventory");
+import { alex } from "./alex.js";
+import { harry } from "./harry.js";
+import { forestRoad } from "./forestRoad.js";
+import { forestMap } from "../forest/forestMap.js";
+import { serenoCenter } from "../../mapFunctions.js";
+import { inventory, openInventory } from "../../inventory.js";
 
-const serenoMap = (promptValue) => {
-  // await textDelayer();
-  promptValue = "";
-  let serenoCenterValue = promptValue;
-  console.log(serenoCenterValue);
+const serenoMapFunc = () => {
+  let serenoCenterValue = "";
 
   serenoCenterValue = serenoCenter(serenoCenterValue);
   console.log(serenoCenterValue);
@@ -63,4 +60,4 @@ const serenoMap = (promptValue) => {
   }
 };
 
-module.exports = { serenoMap };
+export { serenoMapFunc };

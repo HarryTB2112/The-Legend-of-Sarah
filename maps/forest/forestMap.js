@@ -1,7 +1,7 @@
-const { forestCenter } = require("../../mapFunctions");
-const { stream } = require("./stream");
-const { cave } = require("./cave");
-const { inventory, openInventory } = require("../../inventory");
+import { forestCenter } from "../../mapFunctions.js";
+import { stream } from "./stream.js";
+import { cave } from "./cave.js";
+import { inventory, openInventory } from "../../inventory.js";
 
 const forestMap = () => {
   let forestCenterValue = "";
@@ -21,4 +21,4 @@ const forestMap = () => {
   }
 };
 
-module.exports = forestMap;
+export { forestMap }

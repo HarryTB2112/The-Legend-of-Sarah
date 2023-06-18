@@ -1,4 +1,5 @@
-const prompt = require("prompt-sync")();
+import promptSync from "prompt-sync"; 
+const prompt = promptSync()
 
 const serenoCenter = (value) => {
   value = "";
@@ -42,4 +43,4 @@ const showMenu = () => {
   console.log("Menu");
 };
 
-module.exports = { serenoCenter, forestCenter, showMenu };
+export { serenoCenter, forestCenter, showMenu };

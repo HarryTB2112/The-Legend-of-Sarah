@@ -10,4 +10,4 @@ function openInventory(inventory, callBack) {
   callBack();
 }
 
-module.exports = { inventory, openInventory };
+export { inventory, openInventory };

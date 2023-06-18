@@ -1,4 +1,4 @@
-const { inventory } = require("../../inventory");
+import { inventory } from "../../inventory.js";
 
 const harry = (callBack) => {
   if (inventory.includes("LaFossian Shield")) {
@@ -13,4 +13,4 @@ const harry = (callBack) => {
   callBack();
 };
 
-module.exports = harry;
+export { harry};
