@@ -1,23 +1,13 @@
-import promptSync from "prompt-sync"; 
-const prompt = promptSync()
+import promptSync from "prompt-sync";
+const prompt = promptSync();
+import { textDelayer } from "./index.js";
+import { serenoMapFunc } from "./maps/sereno/serenoMap.js";
 
 const serenoCenter = (value) => {
-  value = "";
-  while (
-    value !== "go west" &&
-    value !== "go east" &&
-    value !== "help" &&
-    value !== "go north" &&
-    value !== "go south" &&
-    value !== "inventory"
-  ) {
-    // console.log("You cannot do that");
-    console.log(
-      "\nYou see the forest to the west and the entrance to the castle grounds to the east...\nTo the north you see a buff looking man, and to the south you see an incredibly handsome bloke \n"
-    );
-    value = String(prompt("")).toLowerCase();
-  }
-  return value;
+  let mainText =
+    "\nYou see the forest to the west and the entrance to the castle grounds to the east...\nTo the north you see a buff looking man, and to the south you see an incredibly handsome bloke \n \nGo North, Go South, Go East or Go West \n";
+
+  textDelayer(mainText, serenoMapFunc, undefined, "");
 };
 
 const forestCenter = (value) => {

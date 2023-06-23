@@ -4,18 +4,20 @@ import { forestRoad } from "./forestRoad.js";
 import { forestMap } from "../forest/forestMap.js";
 import { serenoCenter } from "../../mapFunctions.js";
 import { inventory, openInventory } from "../../inventory.js";
+import { textDelayer } from "../../index.js";
 
-const serenoMapFunc = () => {
-  let serenoCenterValue = "";
+const serenoMapFunc = (promptValue) => {
+  let serenoCenterValue = promptValue;
+  if (promptValue === " " || promptValue === "y") {
+    serenoCenterValue = serenoCenter(serenoCenterValue);
+  }
 
-  serenoCenterValue = serenoCenter(serenoCenterValue);
-  console.log(serenoCenterValue);
   if (serenoCenterValue === "go north") {
-    alex(serenoMap);
+    alex(serenoMapFunc);
   }
 
   if (serenoCenterValue === "go south") {
-    harry(serenoMap);
+    harry(serenoMapFunc);
   }
 
   if (
@@ -35,7 +37,7 @@ const serenoMapFunc = () => {
     console.log(
       "\nI should find a sword and shield before I go to the forest\n"
     );
-    serenoMap();
+    serenoMapFunc();
   }
 
   if (
@@ -52,7 +54,7 @@ const serenoMapFunc = () => {
   }
 
   if (serenoCenterValue === "inventory") {
-    openInventory(inventory, serenoMap);
+    openInventory(inventory, serenoMapFunc);
   }
 
   if (serenoCenterValue === "help") {
