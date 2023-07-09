@@ -19,9 +19,10 @@ const textDelayer = (
       process.stdout.write("\n");
       clearInterval(timer);
     }
-  }, 50);
+  }, 30);
 
-  let amount = str.length * 1.3 * 50;
+  //do calculations based on string length to determine how long it will take etc.
+  let amount = str.length * 1.3 * 30;
 
   if (callBackA === undefined && callBackB === undefined) {
     null;
